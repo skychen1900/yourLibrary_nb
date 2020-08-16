@@ -1,0 +1,43 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<!-- <h:outputScript library="primefaces" name="jquery/jquery.js" target="head" ></h:outputScript>
+ -->
+<h:outputScript target="head">
+<!-- 	window.onload = function () {
+	}
+
+    $(document).ready(function() {
+		$('#form1').submit(function(){
+			 var data = $('#form1').serializeArray();
+			 data = parseJson(data);  // 作成した以下の関数を呼び出す
+			  // ③送信
+			  $.ajax({
+			    type:          'post',
+			    dataType:      'json',
+			    contentType:   'application/json',
+			    scriptCharset: 'utf-8',
+			    data:          data
+			  })
+		});
+	});
+
+	// ②変換関数：json to 欲しい形
+	var parseJson = function(data) {
+		  var returnJson = '';
+		  for (idx = 0; idx &lt; data.length; idx++) {
+		    returnJson = returnJson + '|' + data[idx].value
+		  }
+		  return returnJson;
+	}; -->
+
+</h:outputScript>
+
+ <h2>
+ <p:staticMessage severity="info" summary="INFO!" detail="Welcome to Your Library"></p:staticMessage>
+ </h2>
+ 
+</html>

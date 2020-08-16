@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:form id="menubar">
+        <p:menubar>
+            <p:menuitem icon="ui-icon-home"
+                        action="/index.xhtml?faces-redirect=true" />
+            <p:submenu rendered="#{sessionInfo.loginUser ne null}" label="個人設定"
+                       icon="ui-icon-wrench">
+                <p:menuitem value="テーマ変更" icon="ui-icon-refresh"
+                            action="/changeTheme.xhtml?faces-redirect=true">
+                </p:menuitem>
+            </p:submenu>
+            <p:submenu rendered="#{sessionInfo.loginUser eq null}" label="ログイン"
+                       icon="ui-icon-wrench">
+                <p:menuitem value="ログイン" icon="ui-icon-refresh"
+                            action="/index.xhtml?faces-redirect=true">
+                </p:menuitem>
+            </p:submenu>
+            <p:submenu label="リンク" icon="ui-icon-extlink">
+                <p:menuitem value="Google" url="http://www.google.co.jp">
+                </p:menuitem>
+                <p:menuitem value="Yahoo Japan" url="http://www.yahoo.co.jp">
+                </p:menuitem>
+            </p:submenu>
+
+            <p:submenu rendered="#{sessionInfo.loginUser ne null}"
+                       icon="ui-icon-power" style="float:right">
+                <p:menuitem rendered="#{sessionInfo.loginUser.account eq 'admin'}"
+                            icon="ui-icon-person" value="システム監視-Druid" target="_blank"
+                            url="http://localhost:9080/yourLibrary/druid">
+                </p:menuitem>
+                <p:menuitem rendered="#{sessionInfo.loginUser.account eq 'admin'}"
+                            icon="ui-icon-person" value="システム監視-javamelody" target="_blank"
+                            url="http://localhost:8080/yourlibrary/monitoring">
+                </p:menuitem>
+                <p:menuitem value="ログアウト[#{sessionInfo.loginUser.name}]"
+                            icon="ui-icon-close" action="#{sessionInfo.logout}">
+                </p:menuitem>
+            </p:submenu>
+        </p:menubar>
+    </h:form>
+</html>
